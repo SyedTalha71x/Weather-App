@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- component -->
+    <!-- This is an example component -->
+    <nav class="border-gray-200  p-2 bg-purple-950">
+        <div class="container mx-auto flex flex-wrap items-center justify-between">
+            <a href="#" class="flex">
+                <svg class="h-10 mr-3" width="51" height="70" viewBox="0 0 51 70" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0)">
+                        <path d="M1 53H27.9022C40.6587 53 51 42.7025 51 30H24.0978C11.3412 30 1 40.2975 1 53Z"
+                            fill="#76A9FA"></path>
+                        <path
+                            d="M-0.876544 32.1644L-0.876544 66.411C11.9849 66.411 22.4111 55.9847 22.4111 43.1233L22.4111 8.87674C10.1196 8.98051 0.518714 19.5571 -0.876544 32.1644Z"
+                            fill="#A4CAFE"></path>
+                        <path d="M50 5H23.0978C10.3413 5 0 15.2975 0 28H26.9022C39.6588 28 50 17.7025 50 5Z"
+                            fill="#1C64F2"></path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0">
+                            <rect width="51" height="70" fill="white"></rect>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <span class="self-center text-lg text-white font-semibold whitespace-nowrap">Weather App</span>
+            </a>
+            <div class="flex md:order-2">
+                <div class="relative mr-3 md:mr-0 hidden md:block">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="w-5 h-5 text-gray-500 cursor-pointer" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <input id="city"
+                        class=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2"
+                        placeholder="Search...">
+                </div>
+                <button id="submit"
+                    class=" cursor-pointer text-black bg-white rounded-md px-4 ml-2 font-semibold hover:bg-black hover:text-white">Search</button>
+            </div>
+            <div class="li-items hidden md:flex justify-between items-center w-full md:w-auto md:order-1"
+                id="mobile-menu-3">
+                <ul class="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium">
+                    <li>
+                        <a href="#"
+                            class="bg-blue-700  md:bg-transparent text-white block pl-3 pr-4 py-2 md: md:p-0 rounded"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="text-white  md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0">About</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="text-white  md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0">Services</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- component -->
+
+    <div class="min-h-screen text-center   bg-gray-200  flex flex-wrap items-center  justify-center  ">
+
+        <h1 class="mt-9 text-center text-4xl font-bold bg-purple-900 px-16 py-4 text-white rounded-lg ">Weather for <span id="CityName"></span></h1>
+        <div
+            class=" mb-44 flex flex-col sm:flex-col lg:flex-row xl:flex-row md:flex-row justify-center items center  container   ">
+            <div class=" sm:py-12 md:py-6 lg:py-6 xl:py-6 px-8 w-full md:max-w-min sm:w-full bg-white z-30">
+                <h1 class="text-gray-500 font-semibold text-xl ">Temperature</h1>
+                <div class="text-center py-4 px-7">
+                    <h1 class="text-gray-700 text-4xl font-black"><span id="temp"></span><span>'C</span></h1>
+
+
+                </div>
+                <div class="h-px bg-gray-200"></div>
+                <div class="text-center mt-3">
+                    <ul>
+                        <!-- <li class="li-points">Temperature is <span id="temp"></span></li> -->
+                        <li class="li-points">Max Temp is <span id="max_temp"></span></li>
+                        <li class="li-points">Min Temp is <span id="min_temp"></span></li>
+                    </ul>
+                </div>
+                <button
+                class="w-full mt-6 mb-3 py-2 text-white font-semibold bg-gray-700 hover:shadow-xl duration-200 hover:bg-gray-800">More Info</button>
+            </div>
+            <div
+                class="py-12 sm:py-12 md:py-6 lg:py-6 xl:py-6 px-8 w-full md:max-w-min sm:w-full bg-purple-500 transform scale-1 sm:scale-1 md:scale-105 lg:scale-105 xl:scale-105 z-40  shadow-none sm:shadow-none md:shadow-xl lg:shadow-xl xl:shadow-xl">
+                <h1 class="text-purple-200 font-semibold text-xl ">Sun Information</h1>
+                <div class="text-center py-4 px-7">
+                    <h1 class="text-white text-4xl font-black">About</h1>
+
+
+                </div>
+                <div class="h-px bg-purple-400"></div>
+                <div class="text-center mt-3">
+                    <ul>
+                        <li class="li-points">humidity <span id="humidity"></span></li>
+
+                        <li class="li-points">Sunrise <span id="sunrise"></span></li>
+
+                        <li class="li-points">Sunset <span id="sunset"></span></li>
+
+                    </ul>
+
+                </div>
+                <button
+                class="w-full mt-6 mb-3 py-2 text-white font-semibold bg-gray-700 hover:shadow-xl duration-200 hover:bg-gray-800">More Info</button>
+
+            </div>
+            <div class="py-12 sm:py-12 md:py-6 lg:py-6 xl:py-6 px-8 w-full md:max-w-min sm:w-full bg-white z-30">
+                <h1 class="text-gray-500 font-semibold text-xl ">Wind Information</h1>
+                <div class="text-center py-4 px-7">
+                    <h1 class="text-gray-700 text-4xl font-black">Wind</h1>
+
+
+                </div>
+                <div class="h-px bg-gray-200"></div>
+                <div class="text-center mt-3">
+                    <ul>
+                        <li class="li-points">Feels Like <span id="feels_like"></span> </li>
+                        <li class="li-points">Wind Speed is <span id="wind_speed"></span></li>
+                        <li class="li-points">Wind Degrees <span id="wind_degrees"></span></li>
+
+                    </ul>
+
+                </div>
+                <button
+                    class="w-full mt-6 mb-3 py-2 text-white font-semibold bg-gray-700 hover:shadow-xl duration-200 hover:bg-gray-800">More Info</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
